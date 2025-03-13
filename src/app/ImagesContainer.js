@@ -202,7 +202,7 @@ export default function ImageContainer() {
       <Dialog
         open={open}
         onClose={handleClose}
-        maxWidth="lg"
+        Width="10.5vh"
         fullWidth
         PaperProps={{
           sx: {
@@ -277,7 +277,7 @@ export default function ImageContainer() {
             backgroundColor: "#2a2a2a",
           }}
         >
-          <Button
+          {/* <Button
             variant={resolution === "original" ? "contained" : "outlined"}
             onClick={() => handleResolutionChange("original")}
             startIcon={<Crop32Icon />}
@@ -294,7 +294,7 @@ export default function ImageContainer() {
             }}
           >
             Original
-          </Button>
+          </Button> */}
           <Button
             variant={resolution === "SD" ? "contained" : "outlined"}
             onClick={() => handleResolutionChange("SD")}

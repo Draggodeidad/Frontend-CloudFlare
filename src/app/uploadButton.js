@@ -22,8 +22,15 @@ export default function InputFileUpload() {
     const files = event.target.files;
     if (!files || files.length === 0) return;
 
+    // Verificar que el archivo sea una imagen
+    const file = files[0];
+    if (!file.type.startsWith("image/")) {
+      alert("Por favor, selecciona un archivo de imagen válido");
+      return;
+    }
+
     const formData = new FormData();
-    formData.append("file", files[0]);
+    formData.append("file", file);
 
     try {
       const response = await fetch(
@@ -51,7 +58,11 @@ export default function InputFileUpload() {
   return (
     <Button component="label" variant="contained" startIcon={<ImageIcon />}>
       Subir Imagen
-      <VisuallyHiddenInput type="file" onChange={handleFileUpload} />
+      <VisuallyHiddenInput
+        type="file"
+        onChange={handleFileUpload}
+        accept="image/*"
+      />
     </Button>
   );
 }
